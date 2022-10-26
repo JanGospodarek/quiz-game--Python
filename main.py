@@ -11,8 +11,7 @@ def new_game():
             print(i)
 
         while guess not in opt:
-             guess = input('enter (A,B,C): ')
-        guess=guess.upper()
+             guess = input('enter (A,B,C): ').upper()
         guesses.append(guess)
         correst_guesses+= check_answer(questions.get(key),guess)
         cur_question+=1
@@ -44,6 +43,7 @@ def display_score(correct_guesses,guesses):
     score=int((correct_guesses/len(questions))*100)
     print('your score: '+str(score)+'%')
 def play_again():
+
     response=None
     while response not in ['Y','N']:
         response=input('play again?(Y/N)').upper()
@@ -60,3 +60,6 @@ options = [['A. do dupy', 'B. do poznania', 'C. do burdelu'],
            ['A. bo ich nie lubi', 'B. bo je tylko kremówki', 'C. bo nie zyje'],
            ['A. w dupie', 'B. nigdzie,raki nie zimuja', 'C. w burdelu'], ]
 new_game()
+while play_again():
+    new_game()
+print('bye')
